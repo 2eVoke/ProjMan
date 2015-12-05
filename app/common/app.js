@@ -7,6 +7,13 @@ app.directive("header", function () {
 	};
 });
 
+app.directive("content", function () {
+	return {
+		restrict: "E",
+		templateUrl: "common/content.html"
+	};
+});
+
 
 
 
