@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "au.com.eatwords.schmoozr"
+        id          = "com.toevoke.ProjMan"
         versionCode = "10"
-        version     = "1.0.0" >
+        version     = "0.0.1" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>SchmooZr</name>
+    <name>ProjMan</name>
 	<icon src="icon.png" />
 
     <description>
-     Schmooze your customers bettter!
+     Manage your projects.
     </description>
 
-    <author href="http://eatwords.com.au" email="andrew@eatwords.com.au">
+    <author href="http://2evoke.com" email="andrew@2evoke.com">
         ANDREW SCOTT
     </author>
 
