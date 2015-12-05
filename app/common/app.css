@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+}
+
+.btn {
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+}
+
+.btn-icon {
+	margin: auto;
+	color: #eeeeee;
+}
+
+.toolbar-box{
+	display: flex;
+	background-color: darkcyan;
+}
+
+.toolbar-text-box {
+	display: flex;
+	width: 100%;
+	padding: 15px;
+}
+
+.toolbar-text {
+	color: #eeeeee;
+	font-family: sans-serif;
+	font-size: large;
+}
+
+.toolbar-icon-box {
+	margin: auto 0 auto auto;
+}
