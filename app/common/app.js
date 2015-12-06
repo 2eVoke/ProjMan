@@ -14,7 +14,14 @@ app.directive("content", function () {
 	};
 });
 
-
+app.controller('appCtrl', ['$scope', function($scope) {
+	$scope.content = [
+		{"name": "Alf", "color": "red"},
+		{"name": "Bob", "color": "grn"},
+		{"name": "Ron", "color": "blu"},
+		{"name": "Pol", "color": "pnk"}
+	]
+}]);
 
 
 
