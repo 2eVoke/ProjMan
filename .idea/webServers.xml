@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fdf65c8f-f615-4aad-925f-9b1143026291" name="2eVoke" url="http://www.2evoke.com/projman">
+        <fileTransfer host="ftp.2evoke.com" port="21" password="dffadfd8dfc5dfc0dfe7dfcbdfc4df98df9adf9bdf9c" username="projman@2evoke.com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
