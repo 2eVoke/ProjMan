@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ['projectsModule']);
 
 app.directive("header", function () {
 	return {
@@ -14,23 +14,20 @@ app.directive("content", function () {
 	};
 });
 
-app.controller('appCtrl', ['$scope', function($scope) {
-	$scope.content = [
-		{"name": "Alf", "color": "red"},
-		{"name": "Bob", "color": "grn"},
-		{"name": "Ron", "color": "blu"},
-		{"name": "Pol", "color": "pnk"}
-	]
+app.controller('appCtrl', ['$scope', 'projectsModel', function ($scope, projectsModel) {
+	var app = this;
+	projectsModel.getProjects()
+		.then(function (result) {
+			app.projects = result;
+		});
 }]);
 
 
-
-
 /* DIRECTIVE DECLARATION ***************************************************
-app.directive("DIRECTIVE", function () {
-	return {
-		restrict: "E",
-		templateUrl: "TEMPLATE.html"
-	};
-});
-*/
+ app.directive("DIRECTIVE", function () {
+ return {
+ restrict: "E",
+ templateUrl: "TEMPLATE.html"
+ };
+ });
+ */

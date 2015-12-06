@@ -1,6 +1,6 @@
-<card class="card" ng-repeat="x in content">
-	<card-title>{{x.name}} <span class="right"></span> Some text</card-title>
-	<card-actions>{{x.color}}</card-actions>
+<project class="card" ng-repeat="p in app.projects">
+	<card-title class="{{p.rate}}">{{p.title}} <span class="right"></span> Some text</card-title>
+	<card-actions>{{p.state}}</card-actions>
 	<card-content>Some content</card-content>
-</card>
+</project>
 

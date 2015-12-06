@@ -1,8 +1,8 @@
 body {
 	margin: 0;
-	background-color: #eeeeee;
+	background-color: #f8f8f8;
 	font-family: sans-serif;
-	font-size: 80%;
+	font-size: 12px;
 }
 
 container {
@@ -55,10 +55,11 @@ content {
 	margin: auto 0 auto auto;
 }
 
-card {
+project {
 	display: block;
 	margin: 10px 5px;
 	background-color: white;
+	box-shadow: 1px 1px 5px #aaaaaa;
 }
 
 card-title {
@@ -67,6 +68,19 @@ card-title {
 	padding: 10px;
 	background-color: #ba0404;
 	color: #eeeeee;
+}
+
+.blue {
+	background-color: dodgerblue;
+}
+.green {
+	background-color: forestgreen;
+}
+.orange {
+	background-color: darkorange;
+}
+.red {
+	background-color: darkred;
 }
 
 card-actions {
