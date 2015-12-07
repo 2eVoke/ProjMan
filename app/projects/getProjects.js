@@ -25,6 +25,20 @@ projects.service('projectsModel', ['$http',  function ($http) {
 								data[x].color = "red";
 								break;
 						}
+						switch (data[x].type) {
+							case '0':
+								data[x].icon = "folder";
+								break;
+							case '1':
+								data[x].icon = "folder-o";
+								break;
+							case '2':
+								data[x].icon= "archive";
+								break;
+							case '3':
+								data[x].icon = "file";
+								break;
+						}
 					}
 					return data;
 				});
