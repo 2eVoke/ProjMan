@@ -74,9 +74,10 @@ sub-toolbar-icon-box {
 }
 
 .sub-toolbar-text {
-	width: 40px;
-	font-size: 18px;
+	align-self: center;
+	font-size: 14px;
 	font-weight: 500;
+	color: #888888;
 }
 
 .label-icon {
@@ -99,17 +100,85 @@ card-title {
 	color: #eeeeee;
 }
 
+.text-btn {
+	display: flex;
+	align-items: center;
+	width: 40px;
+	height: 37px;
+	border-radius: 20px;
+	background-color: #888888;
+	box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.40);
+	text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.40);
+	padding-bottom: 3px;
+}
+.btn-text {
+	margin: auto;
+	padding-top: 3px;
+	color: white;
+	font-weight: 700;
+	padding-bottom: 0;
+}
+
+.active {
+	color: #444444;
+	padding-bottom: 0;
+	text-shadow: none;
+}
+.active-bkg {
+	background-color: #444444;
+	padding-bottom: 0;
+	height: 40px;
+	text-shadow: none;
+	box-shadow: none;
+}
+
 .blue {
 	background-color: dodgerblue;
+}
+.light-blue-box {
+	background-color: lightblue;
+}
+.blue-box {
+	background-color: dodgerblue;
+	box-shadow: 0 0 100px rgba(0, 0, 0, .3) inset;
+	height: 40px;
+	padding-bottom: 0;
 }
 .green {
 	background-color: forestgreen;
 }
+.light-green-box {
+	background-color: palegreen;
+}
+.green-box {
+	background-color: forestgreen;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .3) inset;
+	height: 40px;
+	padding-bottom: 0;
+}
 .orange {
 	background-color: darkorange;
 }
+.light-orange-box {
+	background-color: rgba(255, 195, 115, 1);
+}
+.orange-box {
+	background-color: darkorange;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .3) inset;
+	height: 40px;
+	padding-bottom: 0;
+}
 .red {
 	background-color: firebrick;
+}
+.light-red-box {
+	background-color: darksalmon;
+}
+.red-box {
+	background-color: firebrick;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .3) inset;
+	height: 40px;
+	padding-bottom: 0;
 }
 
 card-actions {
@@ -126,12 +195,6 @@ card-content{
 
 .right {
 	margin-left: auto;
-}
-
-.active {
-	color: #444444;
-	padding-bottom: 0;
-	text-shadow: none;
 }
 
 modal {
@@ -175,4 +238,26 @@ modal-title-icon {
 modal-title-text {
 	color: #eeeeee;
 	font-size: large;
+}
+
+modal-content {
+	display: flex;
+	margin: 10px;
+	align-items: stretch;
+}
+
+.modal-form {
+	width: 100%;
+}
+
+.title-input {
+	width: 100%;
+	padding: 5px;
+	border: none;
+	border-bottom: 1px solid #888888;
+	font-size: large;
+}
+
+*:focus {
+	outline: 0;
 }

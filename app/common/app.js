@@ -27,6 +27,10 @@ app.controller('appCtrl', ['$scope', 'projectsModel', 'notesModel', function ($s
 		.then(function (result) {
 			app.projects = result;
 		});
+	app.showSpinner = false;
+	app.toggleSpinner = function() {
+		app.showSpinner = !app.showSpinner;
+	}
 
 	app.projectOrder = ['-rate', 'title'];
 	app.projectReverse = false;
@@ -67,8 +71,13 @@ app.controller('appCtrl', ['$scope', 'projectsModel', 'notesModel', function ($s
 		});
 
 	app.showAddProject = false;
-	app.toggleAddProject = function() {
+	app.toggleShowAddProject = function() {
 		app.showAddProject = !app.showAddProject;
+	};
+
+	app.addProject = function(newProject) {
+		app.toggleSpinner();
+		projectsModel.addProject(newProject);
 	}
 
 }]);
