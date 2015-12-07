@@ -54,6 +54,29 @@ content {
 .toolbar-icon-box {
 	margin: auto 0 auto auto;
 }
+sub-toolbar {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px 10px 5px 10px;
+}
+
+sub-toolbar-icon-box {
+	display: inline-flex;
+	align-items: center;
+}
+.sub-toolbar-icon {
+	width: 40px;
+}
+.sub-toolbar-text {
+	width: 40px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.label-icon {
+	margin-right: 10px;
+	color: #444444;
+}
 
 project {
 	display: block;
