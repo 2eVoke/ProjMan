@@ -98,3 +98,7 @@ card-content{
 .right {
 	margin-left: auto;
 }
+
+.active {
+	color: red;
+}

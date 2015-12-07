@@ -23,6 +23,7 @@ app.controller('appCtrl', ['$scope', 'projectsModel', 'notesModel', function ($s
 
 	app.projectOrder = ['-rate', 'title'];
 	app.projectReverse = false;
+	app.projectOrderCaret = "fa-caret-down";
 	app.chProjectOrder = function (order) {
 		if (JSON.stringify(app.projectOrder) === JSON.stringify(order)) {
 			app.projectReverse = !app.projectReverse;
@@ -30,20 +31,27 @@ app.controller('appCtrl', ['$scope', 'projectsModel', 'notesModel', function ($s
 			app.projectOrder = order;
 			app.projectReverse = false;
 		}
+		(app.projectReverse) ?
+				app.projectOrderCaret = "fa-caret-up" :
+				app.projectOrderCaret = "fa-caret-down";
+	};
 
+	app.isProjectOrder = function(order){
+		return JSON.stringify(app.projectOrder) === JSON.stringify(order);
 	};
 
 	app.projectFilter = {'state':'1'};
 	app.chProjectFilter = function (item, value) {
-		if (item === 'reset') {
-			app.projectFilter = {};
-		} else {
 			if (app.projectFilter[item] === value) {
 				app.projectFilter[item] = '';
 			} else {
 				app.projectFilter[item] = value;
 			}
-		}
+		console.log (app.projectFilter);
+	};
+
+	app.activeFilter = function(item, value) {
+		return app.projectFilter[item] === value;
 	};
 
 
