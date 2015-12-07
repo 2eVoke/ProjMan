@@ -13,10 +13,18 @@
 <container>
 	<header></header>
 	<content></content>
+	<toast ng-if="app.showToast">{{app.toastMessage}}</toast>
 </container>
 
 <modal id="addProject" ng-if="app.showAddProject"></modal>
 <add-project ng-if="app.showAddProject"></add-project>
+
+<modal id="editProject" ng-if="app.showEditProject"></modal>
+<edit-project ng-if="app.showEditProject"></edit-project>
+
+<modal id="spinner" ng-if="app.showSpinner"></modal>
+<spinner ng-if="app.showSpinner"></spinner>
+
 
 
 </body>

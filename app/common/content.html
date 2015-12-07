@@ -63,7 +63,7 @@
 <project class="card"
 		 ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse">
 	<card-title class="{{p.color}}">{{p.title}} &nbsp;&nbsp;<i class="fa fa-{{p.icon}}"></i><span class="right"></span>
-		<btn ng-click="">EDIT</btn>
+		<btn ng-click="app.editProject(p)">EDIT</btn>
 	</card-title>
 	<card-actions>{{p.state}}</card-actions>
 	<card-content ng-repeat="n in app.notes | filter: {pID: p.id}">{{n.text}}</card-content>

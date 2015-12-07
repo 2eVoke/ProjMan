@@ -1,0 +1,87 @@
+<modal-box>
+	<modal-title>
+		<modal-title-box>
+			<modal-title-text>Edit Project</modal-title-text>
+			<modal-title-icon ng-click="app.toggleShowEditProject(); app.openProject = {}"><i class="fa fa-close fa-lg btn-icon"></i>
+			</modal-title-icon>
+		</modal-title-box>
+	</modal-title>
+	<modal-content>
+		<form class="modal-form">
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Title</span>
+				<input type="text" class="title-input" ng-model="app.openProject.title" title="Title">
+			</sub-toolbar> <!-- Title -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Type</span>
+		<span class="sub-toolbar-icon" ng-click="app.openProject.type = '0'"
+			  ng-class="{'active':app.openProject.type === '0'}">
+			<span class="fa-stack fa-2x">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-folder fa-stack-1x fa-inverse"></i>
+			</span>
+		</span>
+		<span class="sub-toolbar-icon" ng-click="app.openProject.type = '1'"
+			  ng-class="{'active':app.openProject.type === '1'}">
+			<span class="fa-stack fa-2x">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
+			</span>
+		</span>
+		<span class="sub-toolbar-icon" ng-click="app.openProject.type = '2'"
+			  ng-class="{'active':app.openProject.type === '2'}">
+			<span class="fa-stack fa-2x">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-archive fa-stack-1x fa-inverse"></i>
+			</span>
+		</span>
+		<span class="sub-toolbar-icon" ng-click="app.openProject.type = '3'"
+			  ng-class="{'active':app.openProject.type === '3'}">
+			<span class="fa-stack fa-2x">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-file fa-stack-1x fa-inverse"></i>
+			</span>
+		</span>
+			</sub-toolbar> <!-- Type -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Rank</span>
+		<span class="text-btn light-blue-box" ng-click="app.openProject.rate = '0'"
+			  ng-class="{'active-bkg blue-box':app.openProject.rate === '0'}">
+			</span>
+		<span class="text-btn light-green-box" ng-click="app.openProject.rate = '1'"
+			  ng-class="{'active green-box':app.openProject.rate === '1'}">
+			</span>
+		<span class="text-btn light-orange-box" ng-click="app.openProject.rate = '2'"
+			  ng-class="{'active orange-box':app.openProject.rate === '2'}">
+		</span>
+		<span class="text-btn light-red-box" ng-click="app.openProject.rate = '3'"
+			  ng-class="{'active red-box':app.openProject.rate === '3'}">
+		</span>
+			</sub-toolbar> <!-- Rate -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Who</span>
+		<span class="text-btn" ng-click="app.openProject.who = '0'"
+			  ng-class="{'active-bkg':app.openProject.who === '0'}">
+			<span class="btn-text">All</span>
+		</span>
+		<span class="text-btn" ng-click="app.openProject.who = '1'"
+			  ng-class="{'active-bkg':app.openProject.who === '1'}">
+			<span class="btn-text">AS</span>
+		</span>
+		<span class="text-btn" ng-click="app.openProject.who = '2'"
+			  ng-class="{'active-bkg':app.openProject.who === '2'}">
+			<span class="btn-text">RR</span>
+		</span>
+		<span class="text-btn" ng-click="app.openProject.who = '3'"
+			  ng-class="{'active-bkg':app.openProject.who === '3'}">
+			<span class="btn-text">GR</span>
+			</span>
+			</sub-toolbar> <!-- Who -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text right" ng-click="app.updateProject(app.openProject)">
+					<br><br>UPDATE
+				</span>
+			</sub-toolbar>
+		</form>
+	</modal-content>
+</modal-box>
