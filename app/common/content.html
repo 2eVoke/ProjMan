@@ -1,6 +1,16 @@
-<project class="card" ng-repeat="p in app.projects">
-	<card-title class="{{p.rate}}">{{p.title}} <span class="right"></span> Some text</card-title>
+<div><br>
+	<span ng-click="app.chProjectOrder(['title', '-rate'])"> TITLE </span>
+	<span ng-click="app.chProjectOrder(['-rate', 'title'])"> RATE </span> /
+	<span ng-click="app.chProjectFilter('reset', '')"> ALL </span>
+	<span ng-click="app.chProjectFilter('who', '1')"> ME </span>
+	<span ng-click="app.chProjectFilter('type', '0')"> CLIENTS </span>
+	<span ng-click="app.chProjectFilter('type', '1')"> PROSPECTS </span>
+	<span ng-click="app.chProjectFilter('type', '2')"> PROJECTS </span>
+	<span ng-click="app.chProjectFilter('type', '3')"> MISC </span>
+</div>
+<project class="card" ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse">
+	<card-title class="{{p.color}}">{{p.title}} <span class="right"></span><btn ng-click="">EDIT</btn></card-title>
 	<card-actions>{{p.state}}</card-actions>
-	<card-content>Some content</card-content>
+	<card-content ng-repeat="n in app.notes | filter: {pID: p.id}">{{n.text}}</card-content>
 </project>
 

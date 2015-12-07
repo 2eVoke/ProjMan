@@ -13,22 +13,24 @@ projects.service('projectsModel', ['$http',  function ($http) {
 					for (var x in data) {
 						switch (data[x].rate) {
 							case '0':
-								data[x].rate = "blue";
+								data[x].color = "blue";
 								break;
 							case '1':
-								data[x].rate = "green";
+								data[x].color = "green";
 								break;
 							case '2':
-								data[x].rate= "orange";
+								data[x].color= "orange";
 								break;
 							case '3':
-								data[x].rate = "red";
+								data[x].color = "red";
 								break;
 						}
 					}
 					return data;
 				});
 }}]);
+
+
 
 
 
