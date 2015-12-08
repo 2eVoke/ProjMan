@@ -205,10 +205,13 @@ app.controller('appCtrl',
 			};
 
 			app.checkNote = function (nID) {
-				var note = {'id': nID};
-				checkNoteModel.checkNote(note)
-				var nIndex = nID - 1;
-				app.notes[nIndex].state = '0';
+				var note = {'id': nID},
+					nIndex = nID - 1;
+				if (app.notes[nIndex].state !== '0') {
+					console.log("working");
+					checkNoteModel.checkNote(note);
+					app.notes[nIndex].state = '0';
+				}
 			};
 		}]);
 

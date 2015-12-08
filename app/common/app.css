@@ -124,6 +124,7 @@ card-title {
 	color: #444444;
 	padding-bottom: 0;
 	text-shadow: none;
+	z-index: 101;
 }
 .active-bkg {
 	background-color: #444444;
@@ -232,7 +233,7 @@ modal-title {
 	height: 80px;
 	overflow: hidden;
 	background-color: #444444;
-	z-index: 100;
+	z-index: 1001;
 }
 
 modal-title-box {
