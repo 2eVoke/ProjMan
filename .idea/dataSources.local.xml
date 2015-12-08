@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - ansc1097_projman@2evoke.com" uuid="8105e8c5-1211-4eef-94a9-9bbe8604f0a4">
+      <secret-storage>master_key</secret-storage>
+      <user-name>ansc1097_projman</user-name>
+      <schema-pattern>ansc1097_projman.*</schema-pattern>
+      <default-schemas>ansc1097_projman.*</default-schemas>
+    </data-source>
+  </component>
+</project>

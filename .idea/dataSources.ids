@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ansc1097_projman@2evoke.com" uuid="8105e8c5-1211-4eef-94a9-9bbe8604f0a4">
+    <database-info product="MySQL" version="5.5.42-cll" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="ansc1097_projman"/>
+      <table id="2" parent="1" name="notes"/>
+      <table id="3" parent="1" name="projects"/>
+      <column id="4" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="pID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="text">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="7" parent="2" name="who">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="8" parent="2" name="state">
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="9" parent="2" name="by">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="2" name="created">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="2" name="updated">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="2" name="updatedBy">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="3" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(24)</data-type>
+      </column>
+      <column id="15" parent="3" name="title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="16" parent="3" name="rate">
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="17" parent="3" name="state">
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="18" parent="3" name="who">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="19" parent="3" name="created">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="20" parent="3" name="updated">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="21" parent="3" name="updatedBy">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="22" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
