@@ -49,8 +49,8 @@ app.controller('appCtrl',
 
 			app.settings = window.localStorage;
 
-			app.settings.setItem("Foo", "bar");
-			console.log(app.settings.getItem("Foo"));
+			app.settings.foo = "Bar";
+			console.log(app.settings.foo);
 
 			app.showSpinner = true;
 			app.toggleSpinner = function () {
