@@ -539,7 +539,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449564198292</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Tidy Icons">
+      <created>1449564212141</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1449564212141</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
