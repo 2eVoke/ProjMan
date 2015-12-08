@@ -88,6 +88,7 @@ sub-toolbar-icon-box {
 project {
 	display: block;
 	margin: 10px 5px;
+	padding-bottom: 10px;
 	background-color: white;
 	box-shadow: 1px 1px 5px #aaaaaa;
 }
@@ -181,6 +182,10 @@ card-title {
 	padding-bottom: 0;
 }
 
+.grey-text {
+	color: grey;
+}
+
 card-actions {
 	display: flex;
 	flex-direction: row;
@@ -189,8 +194,12 @@ card-actions {
 
 card-content{
 	display: flex;
-	flex-direction: column;
-	padding: 10px;
+	flex-direction: row;
+	padding: 0 10px 10px 10px;
+}
+
+.note-check {
+	padding-right: 10px;
 }
 
 .right {
@@ -298,4 +307,9 @@ toast {
 	font-weight: 600;
 	text-align: center;
 	z-index: 9000;
+}
+
+.note-checked {
+	color: grey;
+	text-decoration: line-through;
 }

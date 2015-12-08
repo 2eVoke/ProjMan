@@ -60,12 +60,26 @@
 	</sub-toolbar-icon-box>
 </sub-toolbar>
 
-<project class="card"
+<project class="card" Wine list service?
 		 ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse">
 	<card-title class="{{p.color}}">{{p.title}} &nbsp;&nbsp;<i class="fa fa-{{p.icon}}"></i><span class="right"></span>
 		<btn ng-click="app.editProject(p)">EDIT</btn>
 	</card-title>
-	<card-actions>{{p.state}}</card-actions>
-	<card-content ng-repeat="n in app.notes | filter: {pID: p.id}">{{n.text}}</card-content>
+
+	<sub-toolbar>
+		<sub-toolbar-icon-box class="right">
+			<i class="fa fa-plus-square-o fa-lg grey-text" ng-click="app.toggleShowAddNote(p.id);"></i>
+		</sub-toolbar-icon-box>
+	</sub-toolbar>
+
+	<card-content
+			ng-repeat="n in app.notes | filter: {pID: p.id}: true | orderBy: ['-state']"
+			ng-swipe-right="app.checkNote(n.id);">
+		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'"></i>
+		<i class="fa fa-check-square-o fa-lg grey-text note-check" ng-if="n.state === '0'"></i>
+		<span ng-class="{'note-checked': n.state === '0'}">{{n.text}}</span>
+	</card-content>
+	</card>
+
 </project>
 

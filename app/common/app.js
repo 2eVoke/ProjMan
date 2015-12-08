@@ -1,4 +1,4 @@
-var app = angular.module("app", ['projectsModule', 'notesModule']);
+var app = angular.module("app", ['ngTouch', 'projectsModule', 'notesModule']);
 
 app.directive("header", function () {
 	return {
@@ -28,6 +28,13 @@ app.directive("addProject", function () {
 	};
 });
 
+app.directive("addNote", function () {
+	return {
+		restrict: "E",
+		templateUrl: "notes/newNote.html"
+	};
+});
+
 app.directive("editProject", function () {
 	return {
 		restrict: "E",
@@ -36,8 +43,8 @@ app.directive("editProject", function () {
 });
 
 app.controller('appCtrl',
-	['$scope', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', '$timeout',
-		function ($scope, projectsModel, notesModel, newProjectModel, updateProjectModel, $timeout) {
+	['$scope', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', '$timeout',
+		function ($scope, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, $timeout) {
 			var app = this;
 
 			app.showSpinner = true;
@@ -159,6 +166,50 @@ app.controller('appCtrl',
 					});
 			};
 
+			app.newNote = {};
+
+			app.showAddNote = false;
+			app.toggleShowAddNote = function (pID) {
+				app.newNote.pID = pID;
+				app.showAddNote = !app.showAddNote;
+				window.scrollTo(0, 0);
+			};
+
+			app.addNote = function (newNote) {
+				app.toggleSpinner();
+				newNoteModel.addNote(newNote)
+					.then(function success() {
+						return notesModel.getNotes();
+					}, function error() {
+						alert("Oops... Something went wrong!");
+					})
+					.then(function success(notes) {
+						app.notes = notes;
+					}, function error() {
+						alert("Oops... Something went wrong!");
+					})
+					.then(function success() {
+						return projectsModel.getProjects();
+					}, function error() {
+						alert("Oops... Something went wrong!");
+					})
+					.then(function success(projects) {
+						app.projects = projects;
+						app.toggleShowAddNote();
+						app.toggleSpinner();
+						app.toast("Note Added");
+						app.newNote = {};
+					}, function error() {
+						alert("Oops... Something went wrong!");
+					});
+			};
+
+			app.checkNote = function (nID) {
+				var note = {'id': nID};
+				checkNoteModel.checkNote(note)
+				var nIndex = nID - 1;
+				app.notes[nIndex].state = '0';
+			};
 		}]);
 
 
