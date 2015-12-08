@@ -43,9 +43,14 @@ app.directive("editProject", function () {
 });
 
 app.controller('appCtrl',
-	['$scope', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', '$timeout',
-		function ($scope, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, $timeout) {
+	['$scope', '$location', '$anchorScroll', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', '$timeout',
+		function ($scope, $location, $anchorScroll, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, $timeout) {
 			var app = this;
+
+			app.settings = window.localStorage;
+
+			app.settings.setItem("Foo", "bar");
+			console.log(app.settings.getItem("Foo"));
 
 			app.showSpinner = true;
 			app.toggleSpinner = function () {
@@ -107,6 +112,10 @@ app.controller('appCtrl',
 					app.notes = result;
 				});
 
+			app.activeProject = '';
+			console.log("aProj set to ''");
+			$anchorScroll.yOffset = 100;
+
 			app.showAddProject = false;
 			app.toggleShowAddProject = function () {
 				app.showAddProject = !app.showAddProject;
@@ -132,6 +141,11 @@ app.controller('appCtrl',
 					.then(function success(result) {
 						app.projects = result;
 						app.toggleShowAddProject();
+						app.activeProject = app.projects[result.length-1].id;
+						console.log("aProj set to:" + app.activeProject);
+						$location.hash("anchor" + app.activeProject);
+						console.log("location set to:" + $location.hash());
+						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Added");
 						app.newProject = {};
@@ -143,6 +157,8 @@ app.controller('appCtrl',
 			app.openProject = {};
 			app.editProject = function (project) {
 				app.openProject = angular.copy(project);
+				app.activeProject = app.openProject.id;
+				console.log("aProj set to:" + app.activeProject);
 				app.toggleShowEditProject();
 			};
 
@@ -158,6 +174,9 @@ app.controller('appCtrl',
 					.then(function success(result) {
 						app.projects = result;
 						app.toggleShowEditProject();
+						$location.hash("anchor" + app.activeProject);
+						console.log("location set to:" + $location.hash());
+						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Updated");
 						app.openProject = {};
@@ -176,6 +195,8 @@ app.controller('appCtrl',
 			};
 
 			app.addNote = function (newNote) {
+				app.activeProject = newNote.pID;
+				console.log("aProj set to: " + app.activeProject);
 				app.toggleSpinner();
 				newNoteModel.addNote(newNote)
 					.then(function success() {
@@ -196,6 +217,9 @@ app.controller('appCtrl',
 					.then(function success(projects) {
 						app.projects = projects;
 						app.toggleShowAddNote();
+						$location.hash("anchor" + app.activeProject);
+						console.log("location set to:" + $location.hash());
+						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Note Added");
 						app.newNote = {};
