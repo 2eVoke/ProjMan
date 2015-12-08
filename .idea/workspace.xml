@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/common/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8081937">
-              <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
+            <state vertical-scroll-proportion="-2.6363637">
+              <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -100,13 +100,19 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/common/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="212" column="50" selection-start-line="212" selection-start-column="50" selection-end-line="212" selection-end-column="50" />
-              <folding>
-                <element signature="e#2808#2889#0" expanded="false" />
-                <element signature="e#3527#3611#0" expanded="false" />
-                <element signature="e#3661#4172#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-9.379311">
+              <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/common/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2771739">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,14 +120,14 @@
       <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/common/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.346154">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
+                <element signature="n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#0;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#1;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
-                <element signature="n#sub-toolbar-icon-box#1;n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#0;n#sub-toolbar-icon-box#1;n#sub-toolbar#0;n#!!top" expanded="false" />
-                <element signature="n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#1;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#2;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
                 <element signature="n#span#3;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
@@ -144,6 +150,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -158,7 +169,6 @@
         <option value="$PROJECT_DIR$/www/backend/getNotes.php" />
         <option value="$PROJECT_DIR$/www/backend/updateNotes.php" />
         <option value="$PROJECT_DIR$/app/projects/newProject.js" />
-        <option value="$PROJECT_DIR$/app/common/header.html" />
         <option value="$PROJECT_DIR$/app/projects/addProject.html" />
         <option value="$PROJECT_DIR$/www/backend/getProjects.php" />
         <option value="$PROJECT_DIR$/www/backend/newProject.php" />
@@ -173,9 +183,10 @@
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/notes/getNotes.js" />
         <option value="$PROJECT_DIR$/www/backend/checkNote.php" />
+        <option value="$PROJECT_DIR$/app/common/app.css" />
         <option value="$PROJECT_DIR$/app/common/content.html" />
         <option value="$PROJECT_DIR$/app/common/app.js" />
-        <option value="$PROJECT_DIR$/app/common/app.css" />
+        <option value="$PROJECT_DIR$/app/common/header.html" />
       </list>
     </option>
   </component>
@@ -504,7 +515,43 @@
       <option name="project" value="LOCAL" />
       <updated>1449551567507</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Basic Functionality - Projects + Notes">
+      <created>1449554678546</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1449554678546</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Tidy Icons">
+      <created>1449554980488</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1449554980488</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Tidy Icons">
+      <created>1449563345522</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1449563345522</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Tidy Icons">
+      <created>1449564198292</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1449564198292</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Tidy Icons">
+      <created>1449564212141</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1449564212141</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Tidy Icons">
+      <created>1449564322141</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1449564322141</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -519,10 +566,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0813094" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34415585" sideWeight="0.4967978" order="-1" side_tool="false" content_ui="tabs" x="13" y="345" width="1109" height="343" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34415585" sideWeight="0.4967978" order="-1" side_tool="false" content_ui="tabs" x="13" y="345" width="1109" height="343" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20036596" sideWeight="0.495671" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293687" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24977127" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2580055" sideWeight="0.504329" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,7 +625,9 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Still setting up." />
-    <option name="LAST_COMMIT_MESSAGE" value="Still setting up." />
+    <MESSAGE value="Basic Functionality - Projects + Notes" />
+    <MESSAGE value="Tidy Icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tidy Icons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -605,11 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#2808#2889#0" expanded="false" />
-            <element signature="e#3527#3611#0" expanded="false" />
-            <element signature="e#3661#4172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -667,11 +712,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#2808#2889#0" expanded="false" />
-            <element signature="e#3527#3611#0" expanded="false" />
-            <element signature="e#3661#4172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,11 +770,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#2808#2889#0" expanded="false" />
-            <element signature="e#3527#3611#0" expanded="false" />
-            <element signature="e#3661#4172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -791,11 +828,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#2808#2889#0" expanded="false" />
-            <element signature="e#3527#3611#0" expanded="false" />
-            <element signature="e#3661#4172#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -957,14 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/common/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="66" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.692307">
@@ -1038,20 +1063,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/common/content.html">
+    <entry file="file://$PROJECT_DIR$/app/common/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.346154">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="n#span#0;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#span#1;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#sub-toolbar-icon-box#1;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#span#0;n#sub-toolbar-icon-box#1;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#span#1;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#span#2;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
-            <element signature="n#span#3;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-2.6363637">
+          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1065,20 +1081,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/common/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="212" column="50" selection-start-line="212" selection-start-column="50" selection-end-line="212" selection-end-column="50" />
+        <state vertical-scroll-proportion="-9.379311">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="e#2808#2889#0" expanded="false" />
-            <element signature="e#3527#3611#0" expanded="false" />
-            <element signature="e#3661#4172#0" expanded="false" />
+            <element signature="n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#1;n#sub-toolbar-icon-box#0;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#sub-toolbar-icon-box#1;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#1;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#2;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
+            <element signature="n#span#3;n#sub-toolbar-icon-box#2;n#sub-toolbar#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/common/app.css">
+    <entry file="file://$PROJECT_DIR$/app/common/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8081937">
-          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.2771739">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>

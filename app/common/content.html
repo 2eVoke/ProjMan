@@ -2,19 +2,13 @@
 	<sub-toolbar-icon-box>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectOrder(['title', '-rate'])"
 			  ng-class="{'active':app.isProjectOrder(['title', '-rate'])}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-font fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-font fa-2x"></i>
 			<i class="fa {{app.projectOrderCaret}}" ng-show="app.isProjectOrder(['title', '-rate'])"></i>
 			<i class="fa fa-sort" ng-hide="app.isProjectOrder(['title', '-rate'])"></i>
 		</span>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectOrder(['-rate', 'title'])"
 			  ng-class="{'active':app.isProjectOrder(['-rate', 'title'])}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-exclamation-triangle  fa-2x"></i>
 			<i class="fa {{app.projectOrderCaret}}" ng-show="app.isProjectOrder(['-rate', 'title'])"></i>
 			<i class="fa fa-sort" ng-hide="app.isProjectOrder(['-rate', 'title'])"></i>
 		</span>
@@ -22,46 +16,32 @@
 	<sub-toolbar-icon-box>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectFilter('who', '1')"
 			  ng-class="{'active':app.activeFilter('who', '1')}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-user fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-user fa-2x"></i>
 		</span>
 	</sub-toolbar-icon-box>
 	<sub-toolbar-icon-box>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectFilter('type', '0')"
 			  ng-class="{'active':app.activeFilter('type', '0')}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-folder fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-folder fa-2x"></i>
 		</span>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectFilter('type', '1')"
 			  ng-class="{'active':app.activeFilter('type', '1')}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-folder-o fa-2x"></i>
 		</span>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectFilter('type', '2')"
 			  ng-class="{'active':app.activeFilter('type', '2')}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-archive fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-archive fa-2x"></i>
 		</span>
 		<span class="sub-toolbar-icon" ng-click="app.chProjectFilter('type', '3')"
 			  ng-class="{'active':app.activeFilter('type', '3')}">
-			<span class="fa-stack fa-2x">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-file fa-stack-1x fa-inverse"></i>
-			</span>
+			<i class="fa fa-file fa-2x"></i>
 		</span>
 	</sub-toolbar-icon-box>
 </sub-toolbar>
 
-<project class="card" Wine list service?
+<project class="card"
 		 ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse">
+	<a id="anchor{{p.id}}"></a>
 	<card-title class="{{p.color}}">{{p.title}} &nbsp;&nbsp;<i class="fa fa-{{p.icon}}"></i><span class="right"></span>
 		<btn ng-click="app.editProject(p)">EDIT</btn>
 	</card-title>
@@ -75,11 +55,10 @@
 	<card-content
 			ng-repeat="n in app.notes | filter: {pID: p.id}: true | orderBy: ['-state']"
 			ng-swipe-right="app.checkNote(n.id);">
-		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'"></i>
+		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'" ng-click="app.checkNote(n.id);"></i>
 		<i class="fa fa-check-square-o fa-lg grey-text note-check" ng-if="n.state === '0'"></i>
 		<span ng-class="{'note-checked': n.state === '0'}">{{n.text}}</span>
 	</card-content>
-	</card>
 
 </project>
 
