@@ -53,11 +53,14 @@
 	</sub-toolbar>
 
 	<card-content
-			ng-repeat="n in app.notes | filter: {pID: p.id}: true | orderBy: ['-state']"
+			ng-repeat="n in app.notes | filter: {pID: p.id}: true | orderBy: ['-state', 'due']"
 			ng-swipe-right="app.checkNote(n.id);">
 		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'" ng-click="app.checkNote(n.id);"></i>
 		<i class="fa fa-check-square-o fa-lg grey-text note-check" ng-if="n.state === '0'"></i>
-		<span ng-class="{'note-checked': n.state === '0'}">{{n.text}}</span>
+		<i class="fa fa-exclamation-triangle fa-lg note-overdue note-check" ng-if="n.due < app.today"></i>
+		<span ng-class="{'note-checked': n.state === '0'}">
+			{{n.text}}</span>
+		<span class="right grey-text" ng-class="{'note-overdue strong': n.due < app.today}">{{n.due | date:'d-MMM'}}</span>
 	</card-content>
 
 </project>

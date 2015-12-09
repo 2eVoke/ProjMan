@@ -56,6 +56,10 @@ app.controller('appCtrl',
 
 			app.settings = window.localStorage;
 
+			app.today = new Date();
+			app.dueDate = new Date();
+			app.dueDate.setDate(app.today.getDate() + 7);
+
 			app.showSpinner = true;
 			app.toggleSpinner = function () {
 				app.showSpinner = !app.showSpinner;
@@ -72,11 +76,19 @@ app.controller('appCtrl',
 					});
 			};
 
-			projectsModel.getProjects()
-				.then(function (result) {
-					app.projects = result;
-					app.toggleSpinner();
-				});
+			app.getData = function(){
+				projectsModel.getProjects()
+						.then(function (result) {
+							app.projects = result;
+							app.toggleSpinner();
+						});
+				notesModel.getNotes()
+						.then(function (result) {
+							app.notes = result;
+						});
+			};
+
+			app.getData();
 
 			app.projectOrder = ['-rate', 'title'];
 			app.projectReverse = false;
@@ -98,25 +110,17 @@ app.controller('appCtrl',
 			};
 
 			app.projectFilter = {'state': '1'};
-			app.projectFilter = {'who': app.settings.user};
 			app.chProjectFilter = function (item, value) {
 				if (app.projectFilter[item] === value) {
 					app.projectFilter[item] = '';
 				} else {
 					app.projectFilter[item] = value;
-					console.log(app.projectFilter[item]);
 				}
 			};
 
 			app.activeFilter = function (item, value) {
 				return app.projectFilter[item] === value;
 			};
-
-
-			notesModel.getNotes()
-				.then(function (result) {
-					app.notes = result;
-				});
 
 			app.activeProject = '';
 			$anchorScroll.yOffset = 100;
@@ -133,7 +137,7 @@ app.controller('appCtrl',
 				window.scrollTo(0, 0);
 			};
 
-			app.newProject = {};
+			app.newProject = {'user':app.settings.user};
 
 			app.addProject = function (newProject) {
 				app.toggleSpinner();
@@ -151,13 +155,13 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Added");
-						app.newProject = {};
+						app.newProject = {'user':app.settings.user};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
 			};
 
-			app.openProject = {};
+			app.openProject = {'user':app.settings.user};
 			app.editProject = function (project) {
 				app.openProject = angular.copy(project);
 				app.activeProject = "anchor" + app.openProject.id;
@@ -180,14 +184,11 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Updated");
-						app.openProject = {};
+						app.openProject = {'user':app.settings.user};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
 			};
-			app.dueDate = new Date();
-			app.dueDate.setDate(app.dueDate.getDate() + 7);
-			console.log (app.dueDate);
 			app.newNote = {'due': app.dueDate};
 
 			app.showAddNote = false;
@@ -200,6 +201,7 @@ app.controller('appCtrl',
 			app.addNote = function (newNote) {
 				app.activeProject = "anchor" + newNote.pID;
 				app.toggleSpinner();
+				app.newNote.user = app.settings.user;
 				newNoteModel.addNote(newNote)
 					.then(function success() {
 						return notesModel.getNotes();
@@ -233,7 +235,6 @@ app.controller('appCtrl',
 				var note = {'id': nID},
 					nIndex = nID - 1;
 				if (app.notes[nIndex].state !== '0') {
-					console.log("working");
 					checkNoteModel.checkNote(note);
 					app.notes[nIndex].state = '0';
 				}
@@ -244,5 +245,8 @@ app.controller('appCtrl',
 				app.showSettings = !app.showSettings;
 					window.scrollTo(0, 0);
 			};
+
+
+
 		}]);
 

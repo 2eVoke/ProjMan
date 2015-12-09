@@ -203,6 +203,15 @@ card-content{
 	padding-right: 10px;
 }
 
+.note-overdue {
+	color: red;
+	font-weight: bold;
+}
+
+.strong {
+	font-weight: 900;
+}
+
 .right {
 	margin-left: auto;
 }

@@ -10,6 +10,10 @@ notes.service('notesModel', ['$http',  function ($http) {
 		})
 				.then(function(result){
 					var data = result.data;
+					var today = new Date();
+					for (var x in data) {
+						data[x].due = new Date(Date.parse(data[x].due));
+					}
 					return data;
 				});
 	}}]);
