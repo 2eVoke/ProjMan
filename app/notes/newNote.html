@@ -2,7 +2,8 @@
 	<modal-title>
 		<modal-title-box>
 			<modal-title-text>Add a Note</modal-title-text>
-			<modal-title-icon ng-click="app.toggleShowAddNote(); app.newNote = {}"><i class="fa fa-close fa-lg btn-icon"></i>
+			<modal-title-icon ng-click="app.toggleShowAddNote(); app.newNote = {}"><i
+					class="fa fa-close fa-lg btn-icon"></i>
 			</modal-title-icon>
 		</modal-title-box>
 	</modal-title>
@@ -13,21 +14,33 @@
 				<input type="text" class="title-input" ng-model="app.newNote.text" title="Note">
 			</sub-toolbar> <!-- Text -->
 			<sub-toolbar>
+				<span class="sub-toolbar-text">Due</span>
+				<input type="date" class="title-input" ng-model="app.newNote.due" title="due">
+				<!--
+				<span class="text-btn" ng-click="app.newNote[due]setDate(app.newNote[due]getDate() + 7);">
+					<span class="btn-text">+W</span>
+				</span>
+				<span class="text-btn" ng-click="app.newNote[due]setMonth(app.newNote[due]getMonth() + 1);">
+					<span class="btn-text">+M</span>
+				-->
+				</span>
+			</sub-toolbar> <!-- Due -->
+			<sub-toolbar>
 				<span class="sub-toolbar-text">Who</span>
-		<span class="text-btn" ng-click="app.newNote.who = 0"
-			  ng-class="{'active-bkg':app.newNote.who === 0}">
+		<span class="text-btn" ng-click="app.newNote.who = '123'"
+			  ng-class="{'active-bkg':app.newNote.who === '123'}">
 			<span class="btn-text">All</span>
 		</span>
-		<span class="text-btn" ng-click="app.newNote.who = 1"
-			  ng-class="{'active-bkg':app.newNote.who === 1}">
+		<span class="text-btn" ng-click="app.newNote.who = '1'"
+			  ng-class="{'active-bkg':app.newNote.who === '1'}">
 			<span class="btn-text">AS</span>
 		</span>
-		<span class="text-btn" ng-click="app.newNote.who = 2"
-			  ng-class="{'active-bkg':app.newNote.who === 2}">
+		<span class="text-btn" ng-click="app.newNote.who = '2'"
+			  ng-class="{'active-bkg':app.newNote.who === '2'}">
 			<span class="btn-text">RR</span>
 		</span>
-		<span class="text-btn" ng-click="app.newNote.who = 3"
-			  ng-class="{'active-bkg':app.newNote.who === 3}">
+		<span class="text-btn" ng-click="app.newNote.who = '3'"
+			  ng-class="{'active-bkg':app.newNote.who === '3'}">
 			<span class="btn-text">GR</span>
 			</span>
 			</sub-toolbar> <!-- Who -->

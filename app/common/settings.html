@@ -1,0 +1,33 @@
+<modal-box>
+	<modal-title>
+		<modal-title-box>
+			<modal-title-text>Settings</modal-title-text>
+			<modal-title-icon ng-click="app.toggleShowSettings();"><i class="fa fa-close fa-lg btn-icon"></i>
+			</modal-title-icon>
+		</modal-title-box>
+	</modal-title>
+	<modal-content>
+		<form class="modal-form">
+			<sub-toolbar>
+				<span class="sub-toolbar-text">User</span>
+		<span class="text-btn" ng-click="app.settings.user = 1"
+			  ng-class="{'active-bkg':app.settings.user === '1'}">
+			<span class="btn-text">AS</span>
+		</span>
+		<span class="text-btn" ng-click="app.settings.user = 2"
+			  ng-class="{'active-bkg':app.settings.user === '2'}">
+			<span class="btn-text">RR</span>
+		</span>
+		<span class="text-btn" ng-click="app.settings.user = 3"
+			  ng-class="{'active-bkg':app.settings.user === '3'}">
+			<span class="btn-text">GR</span>
+			</span>
+			</sub-toolbar> <!-- Who -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text right" ng-click="app.toggleShowSettings();">
+					<br><br>DONE
+				</span>
+			</sub-toolbar>
+		</form>
+	</modal-content>
+</modal-box>

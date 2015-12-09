@@ -42,6 +42,13 @@ app.directive("editProject", function () {
 	};
 });
 
+app.directive("settings", function () {
+	return {
+		restrict: "E",
+		templateUrl: "common/settings.html"
+	};
+});
+
 app.controller('appCtrl',
 	['$scope', '$location', '$anchorScroll', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', '$timeout',
 		function ($scope, $location, $anchorScroll, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, $timeout) {
@@ -49,16 +56,13 @@ app.controller('appCtrl',
 
 			app.settings = window.localStorage;
 
-			app.settings.foo = "Bar";
-			console.log(app.settings.foo);
-
 			app.showSpinner = true;
 			app.toggleSpinner = function () {
 				app.showSpinner = !app.showSpinner;
 			};
 
 			app.showToast = false;
-			app.toastMessage = "I am toast";
+			app.toastMessage = "I am a toast";
 			app.toast = function (message) {
 				app.toastMessage = message;
 				app.showToast = true;
@@ -99,6 +103,7 @@ app.controller('appCtrl',
 					app.projectFilter[item] = '';
 				} else {
 					app.projectFilter[item] = value;
+					console.log(app.projectFilter[item]);
 				}
 			};
 
@@ -113,7 +118,6 @@ app.controller('appCtrl',
 				});
 
 			app.activeProject = '';
-			console.log("aProj set to ''");
 			$anchorScroll.yOffset = 100;
 
 			app.showAddProject = false;
@@ -141,10 +145,8 @@ app.controller('appCtrl',
 					.then(function success(result) {
 						app.projects = result;
 						app.toggleShowAddProject();
-						app.activeProject = app.projects[result.length-1].id;
-						console.log("aProj set to:" + app.activeProject);
-						$location.hash("anchor" + app.activeProject);
-						console.log("location set to:" + $location.hash());
+						app.activeProject = "anchor" + app.projects[result.length - 1].id;
+						$location.hash(app.activeProject);
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Added");
@@ -157,8 +159,7 @@ app.controller('appCtrl',
 			app.openProject = {};
 			app.editProject = function (project) {
 				app.openProject = angular.copy(project);
-				app.activeProject = app.openProject.id;
-				console.log("aProj set to:" + app.activeProject);
+				app.activeProject = "anchor" + app.openProject.id;
 				app.toggleShowEditProject();
 			};
 
@@ -174,8 +175,7 @@ app.controller('appCtrl',
 					.then(function success(result) {
 						app.projects = result;
 						app.toggleShowEditProject();
-						$location.hash("anchor" + app.activeProject);
-						console.log("location set to:" + $location.hash());
+						$location.hash(app.activeProject);
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Updated");
@@ -195,8 +195,7 @@ app.controller('appCtrl',
 			};
 
 			app.addNote = function (newNote) {
-				app.activeProject = newNote.pID;
-				console.log("aProj set to: " + app.activeProject);
+				app.activeProject = "anchor" + newNote.pID;
 				app.toggleSpinner();
 				newNoteModel.addNote(newNote)
 					.then(function success() {
@@ -217,8 +216,7 @@ app.controller('appCtrl',
 					.then(function success(projects) {
 						app.projects = projects;
 						app.toggleShowAddNote();
-						$location.hash("anchor" + app.activeProject);
-						console.log("location set to:" + $location.hash());
+						$location.hash(app.activeProject);
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Note Added");
@@ -237,14 +235,10 @@ app.controller('appCtrl',
 					app.notes[nIndex].state = '0';
 				}
 			};
+			app.showSettings = false;
+			app.toggleShowSettings = function () {
+				app.showSettings = !app.showSettings;
+					window.scrollTo(0, 0);
+			};
 		}]);
 
-
-/* DIRECTIVE DECLARATION ***************************************************
- app.directive("DIRECTIVE", function () {
- return {
- restrict: "E",
- templateUrl: "TEMPLATE.html"
- };
- });
- */
