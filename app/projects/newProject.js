@@ -12,16 +12,16 @@ projects.service('projectsModel', ['$http',  function ($http) {
 				var data = result.data;
 				for (var x in data) {
 					switch (data[x].rate) {
-						case '0':
+						case '1':
 							data[x].color = "blue";
 							break;
-						case '1':
+						case '2':
 							data[x].color = "green";
 							break;
-						case '2':
+						case '3':
 							data[x].color= "orange";
 							break;
-						case '3':
+						case '4':
 							data[x].color = "red";
 							break;
 					}

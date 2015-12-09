@@ -15,30 +15,30 @@ projects.service('projectsModel', ['$http', function ($http) {
 					} else {
 						for (var x in data) {
 							switch (data[x].rate) {
-								case '0':
+								case '1':
 									data[x].color = "blue";
 									break;
-								case '1':
+								case '2':
 									data[x].color = "green";
 									break;
-								case '2':
+								case '3':
 									data[x].color = "orange";
 									break;
-								case '3':
+								case '4':
 									data[x].color = "red";
 									break;
 							}
 							switch (data[x].type) {
-								case '0':
+								case '1':
 									data[x].icon = "folder";
 									break;
-								case '1':
+								case '2':
 									data[x].icon = "folder-o";
 									break;
-								case '2':
+								case '3':
 									data[x].icon = "archive";
 									break;
-								case '3':
+								case '4':
 									data[x].icon = "file";
 									break;
 							}

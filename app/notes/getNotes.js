@@ -13,6 +13,21 @@ notes.service('notesModel', ['$http',  function ($http) {
 					var today = new Date();
 					for (var x in data) {
 						data[x].due = new Date(Date.parse(data[x].due));
+
+						switch (data[x].who) {
+							case '123':
+								data[x].text += " (All)";
+								break;
+							case '1':
+								data[x].text += " (AS)";
+								break;
+							case '2':
+								data[x].text += " (RR)";
+								break;
+							case '3':
+								data[x].text += " (GR)";
+								break;
+						}
 					}
 					return data;
 				});

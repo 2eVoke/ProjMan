@@ -76,17 +76,34 @@ app.controller('appCtrl',
 					});
 			};
 
-			app.getData = function(){
+			app.getData = function () {
 				projectsModel.getProjects()
-						.then(function (result) {
-							app.projects = result;
-							app.toggleSpinner();
-						});
-				notesModel.getNotes()
-						.then(function (result) {
-							app.notes = result;
-						});
-			};
+					.then(function (result) {
+						app.projects = result;
+						app.toggleSpinner();
+						notesModel.getNotes()
+							.then(function (result) {
+									app.notes = result;
+								console.log(app.notes);
+								console.log(app.projects);
+									for (var p in app.projects) {
+										for (var n in app.notes) {
+											if (app.notes[n].pID === app.projects[p].id) {
+												if (app.notes[n].who === '123') {
+													app.projects[p].who = '123';
+												}
+												if (app.projects[p].who.indexOf(app.notes[n].who) === -1) {
+													app.projects[p].who += app.notes[n].who;
+												}
+											}
+										}
+									}
+								}
+							);
+					})
+				;
+			}
+			;
 
 			app.getData();
 
@@ -137,9 +154,10 @@ app.controller('appCtrl',
 				window.scrollTo(0, 0);
 			};
 
-			app.newProject = {'user':app.settings.user};
+			app.newProject = {};
 
 			app.addProject = function (newProject) {
+				newProject.user = app.settings.user;
 				app.toggleSpinner();
 				newProjectModel.addProject(newProject)
 					.then(function success() {
@@ -155,13 +173,13 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Added");
-						app.newProject = {'user':app.settings.user};
+						app.newProject = {};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
 			};
 
-			app.openProject = {'user':app.settings.user};
+			app.openProject = {};
 			app.editProject = function (project) {
 				app.openProject = angular.copy(project);
 				app.activeProject = "anchor" + app.openProject.id;
@@ -171,6 +189,7 @@ app.controller('appCtrl',
 
 			app.updateProject = function (openProject) {
 				app.toggleSpinner();
+				openProject.user = app.settings.user;
 				updateProjectModel.updateProject(openProject)
 					.then(function success() {
 						return projectsModel.getProjects();
@@ -184,16 +203,18 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Project Updated");
-						app.openProject = {'user':app.settings.user};
+						app.openProject = {};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
 			};
-			app.newNote = {'due': app.dueDate};
+			app.newNote = {};
 
 			app.showAddNote = false;
 			app.toggleShowAddNote = function (pID) {
 				app.newNote.pID = pID;
+				app.newNote.due = app.dueDate;
+				app.newNote.user = app.settings.user;
 				app.showAddNote = !app.showAddNote;
 				window.scrollTo(0, 0);
 			};
@@ -201,7 +222,6 @@ app.controller('appCtrl',
 			app.addNote = function (newNote) {
 				app.activeProject = "anchor" + newNote.pID;
 				app.toggleSpinner();
-				app.newNote.user = app.settings.user;
 				newNoteModel.addNote(newNote)
 					.then(function success() {
 						return notesModel.getNotes();
@@ -225,28 +245,29 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Note Added");
-						app.newNote = {'due': app.today};
+						app.newNote = {};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
 			};
 
 			app.checkNote = function (nID) {
-				var note = {'id': nID},
-					nIndex = nID - 1;
-				if (app.notes[nIndex].state !== '0') {
-					checkNoteModel.checkNote(note);
-					app.notes[nIndex].state = '0';
+				var note = {'id': nID, 'user': app.settings.user};
+				for (var n in app.notes){
+					if (app.notes[n].id === nID && app.notes[n].state !== '0') {
+						checkNoteModel.checkNote(note);
+						app.notes[n].state = '0';
+					}
 				}
 			};
 
 			(!app.settings.user) ? app.showSettings = true : app.showSettings = false;
 			app.toggleShowSettings = function () {
 				app.showSettings = !app.showSettings;
-					window.scrollTo(0, 0);
+				window.scrollTo(0, 0);
 			};
 
 
-
-		}]);
+		}])
+;
 
