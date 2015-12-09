@@ -98,6 +98,7 @@ app.controller('appCtrl',
 			};
 
 			app.projectFilter = {'state': '1'};
+			app.projectFilter = {'who': app.settings.user};
 			app.chProjectFilter = function (item, value) {
 				if (app.projectFilter[item] === value) {
 					app.projectFilter[item] = '';
@@ -184,8 +185,10 @@ app.controller('appCtrl',
 						alert("Oops... Something went wrong!");
 					});
 			};
-
-			app.newNote = {};
+			app.dueDate = new Date();
+			app.dueDate.setDate(app.dueDate.getDate() + 7);
+			console.log (app.dueDate);
+			app.newNote = {'due': app.dueDate};
 
 			app.showAddNote = false;
 			app.toggleShowAddNote = function (pID) {
@@ -220,7 +223,7 @@ app.controller('appCtrl',
 						$anchorScroll();
 						app.toggleSpinner();
 						app.toast("Note Added");
-						app.newNote = {};
+						app.newNote = {'due': app.today};
 					}, function error() {
 						alert("Oops... Something went wrong!");
 					});
@@ -235,7 +238,8 @@ app.controller('appCtrl',
 					app.notes[nIndex].state = '0';
 				}
 			};
-			app.showSettings = false;
+
+			(!app.settings.user) ? app.showSettings = true : app.showSettings = false;
 			app.toggleShowSettings = function () {
 				app.showSettings = !app.showSettings;
 					window.scrollTo(0, 0);

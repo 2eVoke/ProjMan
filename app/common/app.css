@@ -207,6 +207,14 @@ card-content{
 	margin-left: auto;
 }
 
+.left {
+	margin-right: auto;
+}
+
+.date{
+	margin-left: 20px;
+}
+
 modal {
 	position: fixed;
 	top: 0;
