@@ -5,6 +5,10 @@ body {
 	font-size: 12px;
 }
 
+.nb {
+	white-space: nowrap;
+}
+
 container {
 	width: 100vw;
 	height: 100vh;

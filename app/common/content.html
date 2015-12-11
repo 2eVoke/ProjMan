@@ -40,7 +40,9 @@
 </sub-toolbar>
 
 <project class="card"
-		 ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse">
+		 ng-repeat="p in app.projects | filter: app.projectFilter | orderBy: app.projectOrder :app.projectReverse"
+		 ng-hide="p.hide"
+		 ng-swipe-left="app.snooze(p);">
 	<a id="anchor{{p.id}}"></a>
 	<card-title class="{{p.color}}">{{p.title}} &nbsp;&nbsp;<i class="fa fa-{{p.icon}}"></i><span class="right"></span>
 		<btn ng-click="app.editProject(p)">EDIT</btn>
@@ -54,13 +56,14 @@
 
 	<card-content
 			ng-repeat="n in app.notes | filter: {pID: p.id}: true | orderBy: ['-state', 'due']"
-			ng-swipe-right="app.checkNote(n.id);">
+			ng-swipe-right="app.checkNote(n.id);"
+	ng-if="(n.due > app.lastMonth && n.state ==='0') || n.state === '1' ">
 		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'" ng-click="app.checkNote(n.id);"></i>
 		<i class="fa fa-check-square-o fa-lg grey-text note-check" ng-if="n.state === '0'"></i>
-		<i class="fa fa-exclamation-triangle fa-lg note-overdue note-check" ng-if="n.due < app.today"></i>
+		<i class="fa fa-exclamation-triangle fa-lg note-overdue note-check" ng-if="n.due < app.today && n.state !=='0'"></i>
 		<span ng-class="{'note-checked': n.state === '0'}">
 			{{n.text}}</span>
-		<span class="right grey-text" ng-class="{'note-overdue strong': n.due < app.today}">{{n.due | date:'d-MMM'}}</span>
+		<span class="right grey-text nb" ng-class="{'note-overdue strong': n.due < app.today && n.state !=='0'}">{{n.due | date:'d-MMM'}}</span>
 	</card-content>
 
 </project>

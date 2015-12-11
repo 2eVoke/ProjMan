@@ -58,7 +58,9 @@ app.controller('appCtrl',
 
 			app.today = new Date();
 			app.dueDate = new Date();
+			app.lastMonth = new Date();
 			app.dueDate.setDate(app.today.getDate() + 7);
+			app.lastMonth.setDate(app.today.getDate() -30);
 
 			app.showSpinner = true;
 			app.toggleSpinner = function () {
@@ -76,6 +78,13 @@ app.controller('appCtrl',
 					});
 			};
 
+			app.snooze = function(p){
+				p.hide = true;
+				$timeout(function () {
+					p.hide = false;
+				}, 600000);
+			};
+
 			app.getData = function () {
 				projectsModel.getProjects()
 					.then(function (result) {
@@ -84,8 +93,6 @@ app.controller('appCtrl',
 						notesModel.getNotes()
 							.then(function (result) {
 									app.notes = result;
-								console.log(app.notes);
-								console.log(app.projects);
 									for (var p in app.projects) {
 										for (var n in app.notes) {
 											if (app.notes[n].pID === app.projects[p].id) {
@@ -94,6 +101,10 @@ app.controller('appCtrl',
 												}
 												if (app.projects[p].who.indexOf(app.notes[n].who) === -1) {
 													app.projects[p].who += app.notes[n].who;
+												}
+
+												if ( app.notes[n].due < app.today && app.notes[n].state !=='0'){
+													app.projects[p].rate = '5';
 												}
 											}
 										}
@@ -158,6 +169,10 @@ app.controller('appCtrl',
 
 			app.addProject = function (newProject) {
 				newProject.user = app.settings.user;
+				if (!newProject.title) {newProject.title = 'Untitled';}
+				if (!newProject.type) {newProject.type = '4';}
+				if (!newProject.who) {newProject.who = app.settings.user;}
+				if (!newProject.rate) {newProject.rate = '4';}
 				app.toggleSpinner();
 				newProjectModel.addProject(newProject)
 					.then(function success() {
@@ -215,6 +230,7 @@ app.controller('appCtrl',
 				app.newNote.pID = pID;
 				app.newNote.due = app.dueDate;
 				app.newNote.user = app.settings.user;
+				app.newNote.who = app.settings.user;
 				app.showAddNote = !app.showAddNote;
 				window.scrollTo(0, 0);
 			};
@@ -257,6 +273,7 @@ app.controller('appCtrl',
 					if (app.notes[n].id === nID && app.notes[n].state !== '0') {
 						checkNoteModel.checkNote(note);
 						app.notes[n].state = '0';
+						app.notes[n].due = app.today;
 					}
 				}
 			};

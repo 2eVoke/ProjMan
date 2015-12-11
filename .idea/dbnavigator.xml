@@ -23,15 +23,29 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="f31fe8c2-3344-4b78-950e-aba7fd99aea4">
+        <schema name="ansc1097_projman" object-types="table" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f31fe8c2-3344-4b78-950e-aba7fd99aea4">
       <console name="projMan" type="STANDARD" />
     </connection>
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="f31fe8c2-3344-4b78-950e-aba7fd99aea4" dataset="ansc1097_projman.projects" active-filter-id="c8e23628-31ff-4d26-9b9a-6f326bad6cd4">
+      <filter id="c8e23628-31ff-4d26-9b9a-6f326bad6cd4" name="*" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="*" active="true" />
+      </filter>
+    </filter-list>
+    <filter-list connection-id="f31fe8c2-3344-4b78-950e-aba7fd99aea4" dataset="ansc1097_projman.notes" active-filter-id="EMPTY_FILTER" />
+  </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers />
+    <last-used-providers>
+      <object-type object-type="TABLE" editor-provider="DATA" />
+    </last-used-providers>
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
