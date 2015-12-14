@@ -16,16 +16,16 @@ notes.service('notesModel', ['$http',  function ($http) {
 
 						switch (data[x].who) {
 							case '123':
-								data[x].text += " (All)";
+								data[x].initials = " (All)";
 								break;
 							case '1':
-								data[x].text += " (AS)";
+								data[x].initials = " (AS)";
 								break;
 							case '2':
-								data[x].text += " (RR)";
+								data[x].initials = " (RR)";
 								break;
 							case '3':
-								data[x].text += " (GR)";
+								data[x].initials = " (GR)";
 								break;
 						}
 					}
@@ -73,5 +73,27 @@ notes.service('checkNoteModel', ['$http', function ($http) {
 					}
 				});
 	}
+}]);
+
+notes.service('updateNoteModel', ['$http', function ($http) {
+	var model = this;
+
+	model.updateNote = function (openNote) {
+		openNote.uName = "ProjManApp";
+		openNote.pass = "ProjMan2015";
+		return $http({
+			method: 'POST',
+			url: 'http://2evoke.com/projman/backend/updateNote.php',
+			data: openNote
+		})
+
+				.then(function (result) {
+					var data = result.data;
+					if (data.status === 0) {
+						console.log("Operation Unsuccessful");
+					}
+				});
+	}
+
 }]);
 

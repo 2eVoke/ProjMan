@@ -42,6 +42,13 @@ app.directive("editProject", function () {
 	};
 });
 
+app.directive("editNote", function () {
+	return {
+		restrict: "E",
+		templateUrl: "notes/editNote.html"
+	};
+});
+
 app.directive("settings", function () {
 	return {
 		restrict: "E",
@@ -50,8 +57,8 @@ app.directive("settings", function () {
 });
 
 app.controller('appCtrl',
-	['$scope', '$location', '$anchorScroll', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', '$timeout',
-		function ($scope, $location, $anchorScroll, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, $timeout) {
+	['$scope', '$location', '$anchorScroll', 'projectsModel', 'notesModel', 'newProjectModel', 'updateProjectModel', 'newNoteModel', 'checkNoteModel', 'updateNoteModel', '$timeout',
+		function ($scope, $location, $anchorScroll, projectsModel, notesModel, newProjectModel, updateProjectModel, newNoteModel, checkNoteModel, updateNoteModel, $timeout) {
 			var app = this;
 
 			app.settings = window.localStorage;
@@ -92,29 +99,28 @@ app.controller('appCtrl',
 						app.toggleSpinner();
 						notesModel.getNotes()
 							.then(function (result) {
-									app.notes = result;
-									for (var p in app.projects) {
-										for (var n in app.notes) {
-											if (app.notes[n].pID === app.projects[p].id) {
-												if (app.notes[n].who === '123') {
-													app.projects[p].who = '123';
-												}
-												if (app.projects[p].who.indexOf(app.notes[n].who) === -1) {
-													app.projects[p].who += app.notes[n].who;
-												}
+								app.notes = result;
+								for (var p in app.projects) {
+									for (var n in app.notes) {
+										if (app.notes[n].pID === app.projects[p].id) {
+											if (app.notes[n].who === '123') {
+												app.projects[p].who = '123';
+											}
+											if (app.projects[p].who.indexOf(app.notes[n].who) === -1) {
+												app.projects[p].who += app.notes[n].who;
+											}
 
-												if ( app.notes[n].due < app.today && app.notes[n].state !=='0'){
-													app.projects[p].rate = '5';
-												}
+											if ( app.notes[n].due < app.today && app.notes[n].state !=='0'){
+												app.projects[p].rate = '5';
 											}
 										}
 									}
 								}
-							);
+							})
+						;
 					})
 				;
-			}
-			;
+			};
 
 			app.getData();
 
@@ -162,6 +168,12 @@ app.controller('appCtrl',
 			app.showEditProject = false;
 			app.toggleShowEditProject = function () {
 				app.showEditProject = !app.showEditProject;
+				window.scrollTo(0, 0);
+			};
+
+			app.showEditNote = false;
+			app.toggleShowEditNote = function () {
+				app.showEditNote = !app.showEditNote;
 				window.scrollTo(0, 0);
 			};
 
@@ -282,6 +294,38 @@ app.controller('appCtrl',
 			app.toggleShowSettings = function () {
 				app.showSettings = !app.showSettings;
 				window.scrollTo(0, 0);
+			};
+
+
+
+			app.openNote = {};
+			app.editNote = function (note) {
+				app.openNote = angular.copy(note);
+				app.activeProject = "anchor" + app.openNote.pID;
+				app.toggleShowEditNote();
+			};
+
+
+			app.updateNote = function (openNote) {
+				app.toggleSpinner();
+				openNote.user = app.settings.user;
+				updateNoteModel.updateNote(openNote)
+						.then(function success() {
+							return notesModel.getNotes();
+						}, function error() {
+							alert("Oops... Something went wrong!");
+						})
+						.then(function success(result) {
+							app.notes = result;
+							app.toggleShowEditNote();
+							$location.hash(app.activeProject);
+							$anchorScroll();
+							app.toggleSpinner();
+							app.toast("Note Updated");
+							app.openNote = {};
+						}, function error() {
+							alert("Oops... Something went wrong!");
+						});
 			};
 
 

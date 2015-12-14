@@ -1,0 +1,55 @@
+<modal-box>
+	<modal-title>
+		<modal-title-box>
+			<modal-title-text>Edit Note</modal-title-text>
+			<modal-title-icon ng-click="app.toggleShowEditNote(); app.openNote = {}"><i
+					class="fa fa-close fa-lg btn-icon"></i>
+			</modal-title-icon>
+		</modal-title-box>
+	</modal-title>
+	<modal-content>
+		<form class="modal-form">
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Note</span>
+				<input type="text" class="title-input" ng-model="app.openNote.text"  ng-class="{'note-checked': app.openNote.state === '0'}" title="Note">
+			</sub-toolbar> <!-- Text -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Due</span>
+				<input type="date" class="date left" ng-model="app.openNote.due" title="due">
+				</span>
+			</sub-toolbar> <!-- Due -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text">Who</span>
+		<span class="text-btn" ng-click="app.openNote.who = '123'"
+			  ng-class="{'active-bkg':app.openNote.who === '123'}">
+			<span class="btn-text">All</span>
+		</span>
+		<span class="text-btn" ng-click="app.openNote.who = '1'"
+			  ng-class="{'active-bkg':app.openNote.who === '1'}">
+			<span class="btn-text">AS</span>
+		</span>
+		<span class="text-btn" ng-click="app.openNote.who = '2'"
+			  ng-class="{'active-bkg':app.openNote.who === '2'}">
+			<span class="btn-text">RR</span>
+		</span>
+		<span class="text-btn" ng-click="app.openNote.who = '3'"
+			  ng-class="{'active-bkg':app.openNote.who === '3'}">
+			<span class="btn-text">GR</span>
+			</span>
+			</sub-toolbar> <!-- Who -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text left" ng-click="app.openNote.state = '0'" ng-if="app.openNote.state === '1'">
+					<br><br>CHECK
+				</span>
+				<span class="sub-toolbar-text left" ng-click="app.openNote.state = '1'" ng-if="app.openNote.state === '0'">
+					<br><br>UN-CHECK
+				</span>
+			</sub-toolbar> <!-- Checked? -->
+			<sub-toolbar>
+				<span class="sub-toolbar-text right" ng-click="app.updateNote(app.openNote)">
+					<br><br>SUBMIT
+				</span>
+			</sub-toolbar>
+		</form>
+	</modal-content>
+</modal-box>

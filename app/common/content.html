@@ -61,8 +61,8 @@
 		<i class="fa fa-square-o fa-lg grey-text note-check" ng-if="n.state === '1'" ng-click="app.checkNote(n.id);"></i>
 		<i class="fa fa-check-square-o fa-lg grey-text note-check" ng-if="n.state === '0'"></i>
 		<i class="fa fa-exclamation-triangle fa-lg note-overdue note-check" ng-if="n.due < app.today && n.state !=='0'"></i>
-		<span ng-class="{'note-checked': n.state === '0'}">
-			{{n.text}}</span>
+		<span ng-class="{'note-checked': n.state === '0'}" ng-click="app.editNote(n)">
+			{{n.text}}{{n.initials}}</span>
 		<span class="right grey-text nb" ng-class="{'note-overdue strong': n.due < app.today && n.state !=='0'}">{{n.due | date:'d-MMM'}}</span>
 	</card-content>
 
