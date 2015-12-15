@@ -22,6 +22,8 @@ content {
 }
 
 .btn {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
 	display: inline-flex;
 	width: 40px;
 	height: 40px;
@@ -33,7 +35,11 @@ content {
 }
 
 .toolbar-box{
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
 	align-items: center;
 	position: fixed;
 	top: 0;
@@ -45,6 +51,8 @@ content {
 }
 
 .toolbar-text-box {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	width: 100%;
 	padding: 10px 15px 0 15px;
@@ -60,16 +68,26 @@ content {
 	margin: auto 0 auto auto;
 }
 sub-toolbar {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
 	justify-content: space-between;
 	padding: 15px 10px 0px 10px;
 }
 
 sub-toolbar-icon-box {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
 	display: inline-flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
 	justify-content: space-between;
 }
 .sub-toolbar-icon {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	width: 45px;
 	color: #ffffff;
@@ -78,6 +96,7 @@ sub-toolbar-icon-box {
 }
 
 .sub-toolbar-text {
+	-webkit-align-self: center;
 	align-self: center;
 	font-size: 14px;
 	font-weight: 500;
@@ -98,7 +117,12 @@ project {
 }
 
 card-title {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
 	flex-direction: row;
 	padding: 10px;
 	background-color: darkgrey;
@@ -106,7 +130,11 @@ card-title {
 }
 
 .text-btn {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
 	align-items: center;
 	width: 40px;
 	height: 37px;
@@ -192,13 +220,23 @@ card-title {
 }
 
 card-actions {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
 	flex-direction: row;
 	padding: 5px 10px 10px 10px;
 }
 
 card-content{
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
 	flex-direction: row;
 	padding: 0 10px 10px 10px;
 }
@@ -248,7 +286,11 @@ modal-box {
 }
 
 modal-title {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
 	align-items: center;
 	width: 100%;
 	height: 80px;
@@ -258,6 +300,8 @@ modal-title {
 }
 
 modal-title-box {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	width: 100%;
 	padding: 10px 25px 0 15px;
@@ -273,8 +317,12 @@ modal-title-text {
 }
 
 modal-content {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	margin: 10px;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
 	align-items: stretch;
 }
 
@@ -295,6 +343,8 @@ modal-content {
 }
 
 spinner {
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	position: absolute;
 	top: 0;
